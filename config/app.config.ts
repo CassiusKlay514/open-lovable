@@ -47,6 +47,14 @@ export const appConfig = {
     // Working directory in sandbox
     workingDirectory: '/home/user/app',
   },
+
+  // Local Sandbox Configuration (Agent Builder MVP)
+  localSandbox: {
+    rootDir: '.agent-builder/sandboxes',
+    basePort: 4173,
+    portRange: 50,
+    devServerStartupDelay: 1500,
+  },
   
   // AI Model Configuration
   ai: {

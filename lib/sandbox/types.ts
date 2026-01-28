@@ -7,8 +7,9 @@ export interface SandboxFile {
 export interface SandboxInfo {
   sandboxId: string;
   url: string;
-  provider: 'e2b' | 'vercel';
+  provider: 'e2b' | 'vercel' | 'local';
   createdAt: Date;
+  rootDir?: string;
 }
 
 export interface CommandResult {
@@ -51,6 +52,10 @@ export abstract class SandboxProvider {
   abstract getSandboxInfo(): SandboxInfo | null;
   abstract terminate(): Promise<void>;
   abstract isAlive(): boolean;
+
+  getWorkspaceDir(): string | null {
+    return null;
+  }
   
   // Optional methods that providers can override
   async setupViteApp(): Promise<void> {
